@@ -14,8 +14,8 @@ let book_schema = new mongoose.Schema({
            type:String,
          require:true
      },
-     published_date:{
-           type:Date,
+     published_year:{
+           type:String,
          require:true
      },
      price:{
