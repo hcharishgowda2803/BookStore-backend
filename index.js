@@ -31,13 +31,13 @@ app.get('/',(req,res)=>{
     res.send('server connected to'+PORT)
 })
 
-app.use('/auth',authRoute)
+app.use('/auth',authRoute);
 
-app.use('/admins',AdminRoute)
+app.use('/admins',AdminRoute);
 
-app.use('/books',booksRoute)
+app.use('/books',booksRoute);
 
-app.use('/cart',cartRoute)
+app.use('/cart',cartRoute);
 
 
 app.listen(PORT,()=>{

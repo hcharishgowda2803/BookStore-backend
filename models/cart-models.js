@@ -3,17 +3,19 @@ import mongoose from "mongoose";
 
 
 const cart_schema = new mongoose.Schema({
-    user_id :{
+    _id :{
         type:String,
         require:true
     },
     cart_items:[
         {
-            id:String,
+            book_id:String,
             name:String,
             price:Number,
             quantity:Number,
-            discount:Number
+            discount:Number,
+            item_total:Number,
+            item_total_discount:Number
         }
     ],
     total:{
