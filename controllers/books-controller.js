@@ -2,8 +2,16 @@ import book from "../models/book-model.js";
 import {errorHandler, mongooseErrorHandler, response} from "../utils/response.js";
 
 
-export const getAllBooks = (req,res)=>{
-        book.find().exec().then((books) => {
+export const getAllBooks = async (req,res)=>{
+    const {limit,page,sort} = req.query;
+    const skip = (parseInt(page) - 1) * limit;
+    let sortObject = {};
+    if(sort === 'author_name' || sort === 'book_genre'){
+        sortObject[sort]= 1;
+    }else{
+        sortObject['book_title'] = 1;
+    }
+      await  book.find().skip(skip).limit(parseInt(limit)).sort(sortObject).exec().then((books) => {
             return response(200, books, res)
         }).catch((err) => {
             return mongooseErrorHandler(err, res)

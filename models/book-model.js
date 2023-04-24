@@ -37,6 +37,14 @@ let book_schema = new mongoose.Schema({
     book_isbn:{
        type:String,
         require:true
+    },
+    review:{
+           type:String,
+        require:false
+    },
+    rating:{
+           type:Number,
+           require:false
     }
 })
 
