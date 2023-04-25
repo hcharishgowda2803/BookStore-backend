@@ -6,15 +6,15 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth-route.js";
 import booksRoute from "./routes/books-route.js";
 import cartRoute from "./routes/cart-route.js";
-import cors from "cors"
+// import cors from "cors"
 import {mongo, port} from "./config/config.js";
 
 
 const PORT = port || 3001
-const index = express();
+const app = express();
 
-index.use(bodyParser.json());
-index.use(cors)
+app.use(bodyParser.json());
+// app.use(cors)
 
 
 mongoose.connect(mongo ,{
@@ -28,19 +28,19 @@ mongoose.connect(mongo ,{
 
 
 
-index.get('/',(req, res)=>{
+app.get('/',(req, res)=>{
     res.send('server connected to'+PORT)
 })
 
-index.use('/auth',authRoute);
+app.use('/auth',authRoute);
 
-index.use('/admins',AdminRoute);
+app.use('/admins',AdminRoute);
 
-index.use('/books',booksRoute);
+app.use('/books',booksRoute);
 
-index.use('/cart',cartRoute);
+app.use('/cart',cartRoute);
 
 
-index.listen(PORT,()=>{
+app.listen(PORT,()=>{
     console.log('Sever is listing at',PORT)
 })
