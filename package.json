@@ -2,10 +2,10 @@
   "name": "bookstore-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nodemon app.js"
+    "test": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",

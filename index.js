@@ -11,10 +11,10 @@ import {mongo, port} from "./config/config.js";
 
 
 const PORT = port || 3001
-const app = express();
+const index = express();
 
-app.use(bodyParser.json());
-app.use(cors)
+index.use(bodyParser.json());
+index.use(cors)
 
 
 mongoose.connect(mongo ,{
@@ -28,19 +28,19 @@ mongoose.connect(mongo ,{
 
 
 
-app.get('/',(req,res)=>{
+index.get('/',(req, res)=>{
     res.send('server connected to'+PORT)
 })
 
-app.use('/auth',authRoute);
+index.use('/auth',authRoute);
 
-app.use('/admins',AdminRoute);
+index.use('/admins',AdminRoute);
 
-app.use('/books',booksRoute);
+index.use('/books',booksRoute);
 
-app.use('/cart',cartRoute);
+index.use('/cart',cartRoute);
 
 
-app.listen(PORT,()=>{
+index.listen(PORT,()=>{
     console.log('Sever is listing at',PORT)
 })
