@@ -1,3 +1,4 @@
+
 import express from "express";
 import bodyParser from "body-parser";
 import AdminRoute from "./routes/admin-route.js";
@@ -5,18 +6,18 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth-route.js";
 import booksRoute from "./routes/books-route.js";
 import cartRoute from "./routes/cart-route.js";
-// import cors from "cors"
+import cors from "cors"
+import {mongo, port} from "./config/config.js";
 
 
-
+const PORT = port || 3001
 const app = express();
-const PORT = 3200
 
 app.use(bodyParser.json());
-// app.use(cors)
+app.use(cors)
 
 
-mongoose.connect('mongodb+srv://root:root123@harish.tabtvlq.mongodb.net/bookstore01',{
+mongoose.connect(mongo ,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(()=>{
