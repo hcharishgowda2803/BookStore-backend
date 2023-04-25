@@ -1,5 +1,5 @@
 
-const port = 3200
+const port = 3000
 
 const database = {
     user:'root',
