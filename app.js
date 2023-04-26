@@ -1,4 +1,3 @@
-
 import express from "express";
 import bodyParser from "body-parser";
 import AdminRoute from "./routes/admin-route.js";
@@ -6,15 +5,17 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth-route.js";
 import booksRoute from "./routes/books-route.js";
 import cartRoute from "./routes/cart-route.js";
-import cors from "cors"
 import {mongo, port} from "./config/config.js";
+import cors from "cors"
 
 
 const PORT = port || 3001
 const app = express();
 
+
 app.use(bodyParser.json());
-app.use(cors)
+app.use(cors())
+// app.use(bodyParser.urlencoded({limit:'100mb'}))
 
 
 mongoose.connect(mongo ,{
