@@ -10,7 +10,7 @@ router.get('/',authenticatejwt, getAllAdmins);
 
 router.get('/:id',authenticatejwt,getById);
 
-router.post('/',authenticatejwt,addAdmin);
+router.post('/',addAdmin);
 
 router.put('/:id',authenticatejwt,updateAdmin);
 

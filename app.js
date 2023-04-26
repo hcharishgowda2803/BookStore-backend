@@ -6,7 +6,7 @@ import mongoose from "mongoose";
 import authRoute from "./routes/auth-route.js";
 import booksRoute from "./routes/books-route.js";
 import cartRoute from "./routes/cart-route.js";
-// import cors from "cors"
+import cors from "cors"
 import {mongo, port} from "./config/config.js";
 
 
@@ -14,7 +14,7 @@ const PORT = port || 3001
 const app = express();
 
 app.use(bodyParser.json());
-// app.use(cors)
+app.use(cors)
 
 
 mongoose.connect(mongo ,{
