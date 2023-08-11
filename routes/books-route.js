@@ -12,6 +12,9 @@ router.post('/',addNewBook);
 router.delete('/:id',deleteBook);
 router.put('/:id',updateBook)
 // router.put('/:id',updateBook)
+// router.put('/:id',updateBook)
+// router.put('/:id',updateBook)
+// router.put('/:id',updateBook)
 
 
 
